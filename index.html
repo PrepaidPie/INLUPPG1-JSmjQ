@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inlämningsuppgift 1 - Oliver Larsson</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container">
+
+        <div class="py-5 text-center">
+            <h2 class="text-primary">Inlämningsuppgift 1 - Oliver Larsson</h2>
+        </div>
+
+        <div class="col-md-12 order-md-1">
+                <h4 class="mb-3"><i class="fas fa-user mr-2"></i> Personlig Information</h4>
+
+                <form name="regForm" onsubmit="return validateRegForm();" action="skickat.html" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Förnamn</label>
+                            <input id="firstName" type="text" class="form-control" required>
+                            <div id="firstName-invalid-feedback" class="invalid-feedback">
+                                Du måste ange ett förnamn, det måste vara minst 2 tecken långt
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="surname">Efternamn</label>
+                            <input id="surname" type="text" class="form-control" required>
+                            <div id="surname-invalid-feedback" class="invalid-feedback">
+                                Du måste ange ett efternamn, det måste vara minst 2 tecken långt
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">E-postadress</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input id="email" type="email" class="form-control" required>
+                            <div id="email-invalid-feedback" class="invalid-feedback">
+                                Du måste ange en giltig e-postadress
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password">Lösenord</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input id="password" type="password" class="form-control" required>
+                            <div id="password-invalid-feedback" class="invalid-feedback">
+                                Du måste ange ett lösenord som är minst 8 tecken
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="confirmPassword">Bekräfta Lösenord</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input id="confirmPassword" data-comparewith="#password" type="password" class="form-control" required>
+                            <div id="confirmPassword-invalid-feedback" class="invalid-feedback">
+                                Du måste bekräfta lösenordet
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                        <label for="phone">Typ av telefon</label>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div id="phone" class="d-block my-3">
+                                    <div class="custom-control custom-radio">
+                                        <input id="android" type="radio" name="phone" class="custom-control-input" required>
+                                        <label for="android" class="custom-control-label">Android</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input id="ios" type="radio" name="phone" class="custom-control-input" required>
+                                        <label for="ios" class="custom-control-label">iOS</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input id="windows" type="radio" name="phone" class="custom-control-input" required>
+                                        <label for="windows" class="custom-control-label">Windows</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input id="noSmartphone" type="radio" name="phone" class="custom-control-input" required>
+                                        <label for="noSmartphone" class="custom-control-label">Ej smartphone</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <label for="age">Ålder</label>
+                                <select id="age" class="custom-select d-block w-100" required>
+                                    <option value="">Välj din ålder</option>
+                                    <option value="13-20">13-20 år</option>
+                                    <option value="21-35">21-35 år</option>
+                                    <option value="36-65">36-65 år</option>
+                                    <option value="65+">65+ år</option>
+                                </select>
+                                <div id="age-invalid-feedback" class="invalid-feedback">
+                                    Du måste ange din ålder
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="py-3"></div>
+
+                    <div class="mb-3">
+                        <label for="comment">Kommentar</label>
+                        <textarea id="comment" class="form-control is-valid"  rows="3"></textarea>
+                        <div id="comment-invalid-feedback" class="invalid-feedback">
+                            Använd ej mer än 250 tecken
+                        </div>
+                        <div id='textCounter'></div>
+                    </div>
+
+                    <div class="py-3"></div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input id="gdpr" type="checkbox" class="custom-control-input is-invalid" required>
+                        <label for="gdpr" class="custom-control-label">Jag har läst och godkänner de allmänna villkoren och GDPR.</label>
+                    </div>
+                    <div class="py-2"></div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Registrera nytt medlemskap</button>
+                    <div class="py-4"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+<script>
+
+function validateRegForm() {
+    if ($(".is-invalid").length > 0) { 
+        alert("Alla fält måste vara gröna");
+        return false;
+    } else if ($(".is-valid").length < 9) {
+        alert("Alla fält måste vara gröna");
+        return false;
+    } else {
+        return true;
+    }    
+};
+
+</script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
